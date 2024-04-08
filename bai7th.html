@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        function tinhTongHaiSo() {
+            const soThuNhat = parseFloat(document.getElementById("soThuNhat").value);
+            const soThuHai = parseFloat(document.getElementById("soThuHai").value);
+
+            const tong = soThuNhat + soThuHai;
+            document.getElementById("ketQua1").innerText = "Tổng hai số là: " + tong;
+        }
+
+        function tinhChuViDienTich() {
+            const chieuDai = parseFloat(document.getElementById("chieuDai").value);
+            const chieuRong = parseFloat(document.getElementById("chieuRong").value);
+
+            const chuVi = 2 * (chieuDai + chieuRong);
+            const dienTich = chieuDai * chieuRong;
+
+            document.getElementById("ketQua2").innerText = "Chu vi của hình chữ nhật là: " + chuVi + ", Diện tích của hình chữ nhật là: " + dienTich;
+        }
+
+        function tinhTongMang() {
+            const mang = document.getElementById("mang").value.split(',').map(Number);
+            let tong = 0;
+            for (let i = 0; i < mang.length; i++) {
+                tong += mang[i];
+            }
+            document.getElementById("ketQua3").innerText = "Tổng của mảng là: " + tong;
+        }
+
+        
+        function timSoLonNhat() {
+            const mang = document.getElementById("mangSo").value.split(',').map(Number);
+            if (mang.length === 0) {
+                document.getElementById("ketQua4").innerText = "Mảng rỗng";
+                return;
+            }
+
+            let max = mang[0];
+            for (let i = 1; i < mang.length; i++) {
+                if (mang[i] > max) {
+                    max = mang[i];
+                }
+            }
+            document.getElementById("ketQua4").innerText = "Số lớn nhất trong mảng là: " + max;
+        }
+    </script>
+
+   
+    <h2>Bài 1: Tính tổng hai số</h2>
+    <label for="soThuNhat">Nhập số thứ nhất:</label>
+    <input type="number" id="soThuNhat">
+    <br>
+    <label for="soThuHai">Nhập số thứ hai:</label>
+    <input type="number" id="soThuHai">
+    <br>
+    <button onclick="tinhTongHaiSo()">Tính tổng</button>
+    <p id="ketQua1"></p>
+
+    <h2>Bài 2: Tính chu vi và diện tích hình chữ nhật</h2>
+    <label for="chieuDai">Chiều dài:</label>
+    <input type="number" id="chieuDai">
+    <br>
+    <label for="chieuRong">Chiều rộng:</label>
+    <input type="number" id="chieuRong">
+    <br>
+    <button onclick="tinhChuViDienTich()">Tính</button>
+    <p id="ketQua2"></p>
+
+    <h2>Bài 3: Tính tổng của các số trong một mảng</h2>
+    <label for="mang">Nhập mảng các số (phân cách bằng dấu phẩy):</label>
+    <input type="text" id="mang">
+    <br>
+    <button onclick="tinhTongMang()">Tính tổng</button>
+    <p id="ketQua3"></p>
+
+    <h2>Bài 4: Tìm số lớn nhất trong một mảng</h2>
+    <label for="mangSo">Nhập mảng các số (phân cách bằng dấu phẩy):</label>
+    <input type="text" id="mangSo">
+    <br>
+    <button onclick="timSoLonNhat()">Tìm số lớn nhất</button>
+    <p id="ketQua4"></p>
+</body>
+</html>
